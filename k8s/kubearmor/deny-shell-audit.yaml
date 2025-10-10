@@ -1,0 +1,14 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: deny-shell-audit
+  namespace: wisecow
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  process:
+    matchPaths:
+      - path: /bin/sh
+      - path: /usr/bin/bash
+  action: Audit

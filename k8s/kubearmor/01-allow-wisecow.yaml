@@ -1,0 +1,24 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: allow-wisecow-basics
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  # explicitly permits the app’s expected binaries and file accesses
+  process:
+    matchPaths:
+      - path: /usr/local/bin/wisecow.sh
+      - path: /usr/games/fortune
+      - path: /usr/games/cowsay
+      - path: /usr/bin/nc
+  file:
+    matchPaths:
+      - path: /usr/local/bin/wisecow.sh
+      - path: /usr/games/fortune
+      - path: /usr/games/cowsay
+      - path: /app 
+
+  action: Allow
+

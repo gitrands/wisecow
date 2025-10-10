@@ -1,0 +1,24 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: deny-other-execs-and-etc
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  # Block execution of common system binaries (recursive blocks all under those dirs)
+  process:
+    matchPaths:
+      - path: /bin
+        recursive: true
+      - path: /usr/bin
+        recursive: true
+      - path: /sbin
+        recursive: true
+  # Block file reads inside /etc (sensitive config area)
+  file:
+    matchPaths:
+      - path: /etc
+        recursive: true
+  # Block the specified categories (this is the deny part of zero-trust)
+  action: Block
