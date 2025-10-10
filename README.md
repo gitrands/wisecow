@@ -1,9 +1,8 @@
 # wisecow
-# trigger the CI/CD
+DEMO VIDEO - https://drive.google.com/file/d/1uXNn9J9x2WyKWhfXM7WjTC6t7mjb9ygf/view?usp=sharing
 # trigger for the final demo
 #  Wisecow — Secure Kubernetes Deployment with CI/CD and Zero-Trust Security
 
-DEMO VIDEO - https://drive.google.com/file/d/1uXNn9J9x2WyKWhfXM7WjTC6t7mjb9ygf/view?usp=sharing
 ---
 
 ## Overview
